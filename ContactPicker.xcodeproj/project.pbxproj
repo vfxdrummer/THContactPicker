@@ -32,6 +32,7 @@
 		29A71C1816448473005286F1 /* THContactBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A71C1716448473005286F1 /* THContactBubble.m */; };
 		4F743B831904207300AE8765 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F743B821904207300AE8765 /* AddressBookUI.framework */; };
 		6AE31FCC1644DB2C00505230 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE31FCB1644DB2C00505230 /* QuartzCore.framework */; };
+		81FAFF9A1AC285AD006F3FE2 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 81FAFF991AC285AD006F3FE2 /* Background.png */; };
 		84F796481670C79500A8965D /* THBubbleColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F796471670C79500A8965D /* THBubbleColor.m */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,7 @@
 		29A71C1716448473005286F1 /* THContactBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THContactBubble.m; sourceTree = "<group>"; };
 		4F743B821904207300AE8765 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		6AE31FCB1644DB2C00505230 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		81FAFF991AC285AD006F3FE2 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = ContactPicker/resources/images/Background.png; sourceTree = "<group>"; };
 		84F796461670C79500A8965D /* THBubbleColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THBubbleColor.h; sourceTree = "<group>"; };
 		84F796471670C79500A8965D /* THBubbleColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THBubbleColor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +98,7 @@
 			children = (
 				29A71BED1644824F005286F1 /* ContactPicker */,
 				29A71BE61644824F005286F1 /* Frameworks */,
+				81FAFF971AC28594006F3FE2 /* Resources */,
 				29A71BE41644824F005286F1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -165,6 +168,22 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		81FAFF971AC28594006F3FE2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				81FAFF981AC2859E006F3FE2 /* images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		81FAFF981AC2859E006F3FE2 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				81FAFF991AC285AD006F3FE2 /* Background.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -220,6 +239,7 @@
 				29A71BF216448250005286F1 /* InfoPlist.strings in Resources */,
 				0446054118E4D6990091723F /* icon-checkbox-unselected-25x25.png in Resources */,
 				0446053D18E4D6990091723F /* icon-avatar-60x60.png in Resources */,
+				81FAFF9A1AC285AD006F3FE2 /* Background.png in Resources */,
 				29A71BFA16448250005286F1 /* Default.png in Resources */,
 				0446053F18E4D6990091723F /* icon-checkbox-selected-green-25x25.png in Resources */,
 				0446053E18E4D6990091723F /* icon-avatar-60x60@2x.png in Resources */,

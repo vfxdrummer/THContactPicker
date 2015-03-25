@@ -38,9 +38,6 @@ UIBarButtonItem *barButton;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    //    UIBarButtonItem * barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStyleBordered target:self action:@selector(removeAllContacts:)];
-    
     barButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(done:)];
     barButton.enabled = FALSE;
     
@@ -48,12 +45,22 @@ UIBarButtonItem *barButton;
     
     // Initialize and add Contact Picker View
     self.contactPickerView = [[THContactPickerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 100)];
+  self.contactPickerView.backgroundColor = [UIColor blackColor];
     self.contactPickerView.delegate = self;
-    [self.contactPickerView setPlaceholderString:@"Type contact name"];
+    [self.contactPickerView setPlaceholderString:@"Add Contacts"];
     [self.view addSubview:self.contactPickerView];
-    
+  
+//  self.backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background"]];
+    self.backgroundImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    self.backgroundImage.image = [UIImage imageNamed:@"Background"];
+    [self.view insertSubview:self.backgroundImage belowSubview:self.contactPickerView];
+  
+  
     // Fill the rest of the view with the table view
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, self.contactPickerView.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.contactPickerView.frame.size.height - kKeyboardHeight) style:UITableViewStylePlain];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.opaque = NO;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
@@ -255,7 +262,7 @@ UIBarButtonItem *barButton;
 }
 
 - (CGFloat)tableView: (UITableView*)tableView heightForRowAtIndexPath: (NSIndexPath*) indexPath {
-    return 70;
+    return 30;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -274,7 +281,6 @@ UIBarButtonItem *barButton;
     UILabel *contactNameLabel = (UILabel *)[cell viewWithTag:101];
     UILabel *mobilePhoneNumberLabel = (UILabel *)[cell viewWithTag:102];
     UIImageView *contactImage = (UIImageView *)[cell viewWithTag:103];
-    UIImageView *checkboxImageView = (UIImageView *)[cell viewWithTag:104];
     
     // Assign values to to US elements
     contactNameLabel.text = [contact fullName];
@@ -284,37 +290,7 @@ UIBarButtonItem *barButton;
     }
     contactImage.layer.masksToBounds = YES;
     contactImage.layer.cornerRadius = 20;
-    
-    // Set the checked state for the contact selection checkbox
-    UIImage *image;
-    if ([self.selectedContacts containsObject:[self.filteredContacts objectAtIndex:indexPath.row]]){
-        //cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        image = [UIImage imageNamed:@"icon-checkbox-selected-green-25x25"];
-    } else {
-        //cell.accessoryType = UITableViewCellAccessoryNone;
-        image = [UIImage imageNamed:@"icon-checkbox-unselected-25x25"];
-    }
-    checkboxImageView.image = image;
-    
-    // Assign a UIButton to the accessoryView cell property
-    cell.accessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    // Set a target and selector for the accessoryView UIControlEventTouchUpInside
-    [(UIButton *)cell.accessoryView addTarget:self action:@selector(viewContactDetail:) forControlEvents:UIControlEventTouchUpInside];
-    cell.accessoryView.tag = contact.recordId; //so we know which ABRecord in the IBAction method
-    
-    // // For custom accessory view button use this.
-    //    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-    //    button.frame = CGRectMake(0.0f, 0.0f, 150.0f, 25.0f);
-    //
-    //    [button setTitle:@"Expand"
-    //            forState:UIControlStateNormal];
-    //
-    //    [button addTarget:self
-    //               action:@selector(viewContactDetail:)
-    //     forControlEvents:UIControlEventTouchUpInside];
-    //
-    //    cell.accessoryView = button;
-    
+  
     return cell;
 }
 
