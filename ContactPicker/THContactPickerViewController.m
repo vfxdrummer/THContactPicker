@@ -318,7 +318,7 @@ UIBarButtonItem *barButton;
         // Contact has not been selected, add it to THContactPickerView
         //cell.accessoryType = UITableViewCellAccessoryCheckmark;
         [self.selectedContacts addObject:user];
-        [self.contactPickerView addContact:user withName:user.fullName];
+        [self.contactPickerView addContact:user withName:user.firstName];
         // Set checkbox to "selected"
         image = [UIImage imageNamed:@"icon-checkbox-selected-green-25x25"];
     }

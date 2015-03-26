@@ -10,6 +10,13 @@
 #import <QuartzCore/QuartzCore.h>
 #import "THBubbleColor.h"
 
+typedef NS_ENUM(NSUInteger, THContactBubblePosition) {
+  PositionSingle,
+  PositionNotLast,
+  PositionSecondToLast,
+  PositionLast,
+};
+
 @class THContactBubble;
 
 @protocol THContactBubbleDelegate <NSObject>
@@ -26,6 +33,7 @@
 @property (nonatomic, strong) UILabel *label;
 @property (nonatomic, strong) UITextView *textView; // used to capture keyboard touches when view is selected
 @property (nonatomic, assign) BOOL isSelected;
+@property (nonatomic, assign) THContactBubblePosition position;
 @property (nonatomic, assign) id <THContactBubbleDelegate>delegate;
 @property (nonatomic, strong) CAGradientLayer *gradientLayer;
 
@@ -40,5 +48,6 @@
 - (void)select;
 - (void)unSelect;
 - (void)setFont:(UIFont *)font;
+- (void)setPosition:(THContactBubblePosition)position;
 
 @end
